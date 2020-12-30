@@ -290,7 +290,7 @@ namespace PlayniteVndbExtension
             if (technicalTags < _settings.MaxTechnicalTags)
             {
                 ++technicalTags;
-                tags.Add(tagName.Name);
+                tags.Add(String.Concat(_settings.TechnicalTagPrefix, tagName.Name));
             }
 
             return technicalTags;
@@ -301,7 +301,7 @@ namespace PlayniteVndbExtension
             if (sexualTags < _settings.MaxSexualTags)
             {
                 ++sexualTags;
-                tags.Add(tagName.Name);
+                tags.Add(String.Concat(_settings.SexualTagPrefix, tagName.Name));
             }
 
             return sexualTags;
@@ -312,7 +312,7 @@ namespace PlayniteVndbExtension
             if (contentTags < _settings.MaxContentTags)
             {
                 ++contentTags;
-                tags.Add(tagName.Name);
+                tags.Add(String.Concat(_settings.ContentTagPrefix, tagName.Name));
             }
 
             return contentTags;

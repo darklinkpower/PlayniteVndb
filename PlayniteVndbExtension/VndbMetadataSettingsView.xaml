@@ -57,10 +57,32 @@
                 <TextBlock Text="Max Technical Tags" TextAlignment="Center" MinWidth="100" />
                 <TextBox HorizontalAlignment="Center" Text="{Binding MaxTechnicalTags}" MinWidth="30"></TextBox>
             </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="(Enter 0 into a textbox to disable" TextAlignment="Left" MinWidth="100"/>
+                <TextBlock Text=" tags from the category)" TextAlignment="Left" MinWidth="100"/>
+            </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5">
             <StackPanel Margin="5">
-                <TextBlock Text="Minimum Score" HorizontalAlignment="Center" />
+                <TextBlock Text="Content Prefix" TextAlignment="Center" MinWidth="100"/>
+                <TextBox HorizontalAlignment="Center" Text="{Binding MaxAllTags}" MinWidth="75"></TextBox>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Sexual Prefix" TextAlignment="Center" MinWidth="100"/>
+                <TextBox HorizontalAlignment="Center" Text="{Binding MaxAllTags}" MinWidth="75"></TextBox>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Technical Prefix" TextAlignment="Center" MinWidth="100"/>
+                <TextBox HorizontalAlignment="Center" Text="{Binding MaxAllTags}" MinWidth="75"></TextBox>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="(Keep textbox empty to disable" TextAlignment="Left" MinWidth="100"/>
+                <TextBlock Text=" prefixes for the category)" TextAlignment="Left" MinWidth="100"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <StackPanel Margin="5">
+                <TextBlock Text="" HorizontalAlignment="Center" />
                 <Slider Minimum="1" Maximum="3" TickFrequency="0.1" Value="{Binding TagMinScore}"
                         AutoToolTipPlacement="BottomRight" AutoToolTipPrecision="1" MinWidth="100" />
             </StackPanel>
@@ -80,7 +102,7 @@
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Allow incomplete dates: " />
                 <CheckBox IsChecked="{Binding AllowIncompleteDates}" />
-                <TextBlock Text=" (missing day will show as 01, missing month will show as january)" />
+                <TextBlock Text=" (Missing day will show as 01, missing month will show as january)" />
             </StackPanel>
         </StackPanel>
     </StackPanel>

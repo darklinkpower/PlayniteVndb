@@ -48,6 +48,10 @@ namespace PlayniteVndbExtension
         public bool AllowIncompleteDates { get; set; } = false;
 
         public DateTime LastTagUpdate { get; set; }
+
+        public string ContentTagPrefix { get; set; } = "";
+        public string SexualTagPrefix { get; set; } = "";
+        public string TechnicalTagPrefix { get; set; } = "";
         
         public VndbMetadataSettings()
         {
@@ -68,6 +72,9 @@ namespace PlayniteVndbExtension
             MaxContentTags = savedSettings.MaxContentTags;
             MaxSexualTags = savedSettings.MaxSexualTags;
             MaxTechnicalTags = savedSettings.MaxTechnicalTags;
+            ContentTagPrefix = savedSettings.ContentTagPrefix;
+            SexualTagPrefix = savedSettings.SexualTagPrefix;
+            TechnicalTagPrefix = savedSettings.TechnicalTagPrefix;
             MaxAllTags = savedSettings.MaxAllTags;
             TagMaxSpoilerLevel = savedSettings.TagMaxSpoilerLevel;
             TagMinScore = savedSettings.TagMinScore;
@@ -82,6 +89,7 @@ namespace PlayniteVndbExtension
             {
                 MigrateToV1(savedSettings);
                 MigrateToV2(savedSettings);
+                MigrateToV3(savedSettings);
                 plugin.SavePluginSettings(savedSettings);
             }
             
@@ -132,6 +140,16 @@ namespace PlayniteVndbExtension
 
                 savedSettings.AllowNsfwImages = null;
                 savedSettings.Version = 2;
+            }
+        }
+
+        private static void MigrateToV3(VndbMetadataSettings savedSettings)
+        {
+            if (savedSettings.Version == 2)
+            {
+                savedSettings.ContentTagPrefix = "";
+                savedSettings.SexualTagPrefix = "";
+                savedSettings.TechnicalTagPrefix = "";
             }
         }
 #pragma warning restore 618
